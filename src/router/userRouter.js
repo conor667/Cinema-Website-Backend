@@ -47,8 +47,7 @@ router.put("/user/:id", isJsonData, async (request, response, next) => {
     const user = await User.updateOne({ _id: request.params.id }, request.body);
 
     if (user) {
-        response.status(200)
-            .json(user);
+        response.status(200).json(user);
     } else {
         next(new UserNotFoundError(request.params.id));
     }
