@@ -9,8 +9,10 @@ const JWT_TIMEOUT = (60 * 30);
 
 
 
-@param {object} username 
-@return {string}
+/**
+* @param {object} username
+* @return {string} 
+*/
 
 function generateAccessToken(username, role) {
     return jwt.sign({ username, role }, SECRET, { expiresIn: JWT_TIMEOUT });
@@ -42,10 +44,12 @@ function authenticationMiddleware(request, response, next) {
 
 
 
-@param {*} request 
-@param {*} response 
-@param {*} next 
-@returns 
+/**
+ * @param {*} request 
+ * @param {*} response 
+ * @param {*} next 
+ * @returns 
+ */
 
 function isAdmin(request, response, next) {
     if (request.user.role === 'ADMIN') {
