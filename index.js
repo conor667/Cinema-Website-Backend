@@ -27,16 +27,6 @@ app.use(express.static("public"));
 
 //Authenticator
 app.use(authenticationRouter);
-app.use('/example', exampleRouter);
-app.use("/api/stripe",stripe);
-async function main() {
-    await database.connect();
-
-    app.listen(PORT, () => {
-        console.log(`Server up on ${PORT}`);
-    });
-}
-app.use('/', userRouter);
 
 //Main Method
 let server;

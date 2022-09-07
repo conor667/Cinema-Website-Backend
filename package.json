@@ -19,8 +19,7 @@
     "node": "^18.8.0",
     "nodemon": "^2.0.19",
     "react-app": "^1.1.2",
-    "stripe": "^10.7.0"
-    "@reduxjs/toolkit": "^1.8.5",
+    "stripe": "^10.7.0",
     "bcrypt": "^5.0.1",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
@@ -32,6 +31,5 @@
     "module_name": "^1.0.0",
     "mongoose": "^6.3.4",
     "nodemon": "^2.0.16"
-
   }
 }
