@@ -1,11 +1,22 @@
 {
+  "name": "TeamDelta Project",
+  "version": "1.0.0",
+  "description": "This is a project for QA, we are making a cinema website",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "set NODE_ENV=PRODUCTION&& node ./src/index.js",
+    "start:dev": "set NODE_ENV=DEVELOPMENT&& nodemon -r dotenv/config ./src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Team Delta",
+  "license": "ISC",
   "dependencies": {
-    "create": "^0.0.2",
-    "create-react-app": "^1.2.1",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
     "express": "^4.18.1",
-    "mongoose": "^6.5.4",
-    "node": "^18.8.0",
-    "nodemon": "^2.0.19",
-    "react-app": "^1.1.2"
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.3.4",
+    "nodemon": "^2.0.16"
   }
 }
