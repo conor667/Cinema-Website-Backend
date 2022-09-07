@@ -11,15 +11,6 @@
   "author": "Team Delta",
   "license": "ISC",
   "dependencies": {
-    "create": "^0.0.2",
-    "create-react-app": "^1.2.1",
-    "dotenv": "^16.0.2",
-    "express": "^4.18.1",
-    "mongoose": "^6.5.4",
-    "node": "^18.8.0",
-    "nodemon": "^2.0.19",
-    "react-app": "^1.1.2",
-    "stripe": "^10.7.0"
     "@reduxjs/toolkit": "^1.8.5",
     "bcrypt": "^5.0.1",
     "bcryptjs": "^2.4.3",
@@ -32,6 +23,5 @@
     "module_name": "^1.0.0",
     "mongoose": "^6.3.4",
     "nodemon": "^2.0.16"
-
   }
 }
