@@ -4,7 +4,7 @@ const User = require('../model/user');
 const router = express.Router();
 
 let idCounter = 1;
-const usersDatabase = [new User(idCounter++, "test1", "password1", "test@gmail.com",3,"07777777777",2022-02-02,"MEMBER")];
+// const usersDatabase = [new User(idCounter++, "test1", "password1", "test@gmail.com",3,"07777777777",2022-02-02,"MEMBER")];
 
 function isJsonData(request, response, next) {
     if (request.headers['content-type'] !== 'application/json') {
