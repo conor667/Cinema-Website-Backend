@@ -1,45 +1,36 @@
-require('dotenv').config();
 const express = require('express');
-const database = require('./src/config/database.config');
-const authenticationRouter = require('./src/router/AuthenticationRouter');
-const userRouter = require('./src/router/UserRouter');
 const cors = require('cors');
-const { simpleLogger, logHitSpecialEndpoint } = require('./src/loggers/generic');
+const mongoose = require("mongoose");
 
-const PORT = process.env.PORT || 5500;
+//Routers
+const userRouter = require('./src/router/userRouter');
+const authenticationRouter = require('./src/router/AuthenticationRouter');
 
+//Database setup
+const DB_URI = "mongodb://127.0.0.1:27017/qa-cinemas";
+const PORT = 5000;
 const app = express();
 
+//Middleware setup
 app.use(cors("*"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static("public"));
+
 
 app.use(authenticationRouter);
 app.use('/example', userRouter);
-app.get("/special", logHitSpecialEndpoint, (request, response, next) => {
-    console.log("Now in /special handler");
-    next();
-}, (request, response) => {
-    response.send("Done with the /special route now");
-});
-app.use((error, request, response, next) => {
-    console.error(error.message);
-    let responseCode = 500;
 
-    if (error instanceof UserNotFoundError) {
-        responseCode = 404;
-    }
-    
-    return response.status(responseCode).json({
-        message: error.message
-    });
-});
 async function main() {
-    await database.connect();
+    await mongoose.connect(DB_URI, { useNewUrlParser : true, useUnifiedTopology: true })
+                  .then(() => console.log(`Database has been connected: ${DB_URI}`));
 
-    app.listen(PORT, () => {
-        console.log(`Server up on ${PORT}`);
+    const db = mongoose.connection;
+
+    db.on('error', console.error.bind(console, 'Database connection error'));
+    db.on('connection', console.log.bind(console, 'Database connected'));
+    
+    const server = app.listen(PORT, function() {
+        console.log(`Server up on localhost:${PORT}`);
     });
 }
 main();

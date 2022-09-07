@@ -1,10 +1,8 @@
 const express = require('express');
 const User = require('../model/user');
+const UserNotFoundError = require('./src/errors/UserNotFoundError');
 
 const router = express.Router();
-
-let idCounter = 1;
-// const usersDatabase = [new User(idCounter++, "test1", "password1", "test@gmail.com",3,"07777777777",2022-02-02,"MEMBER")];
 
 function isJsonData(request, response, next) {
     if (request.headers['content-type'] !== 'application/json') {
@@ -12,9 +10,9 @@ function isJsonData(request, response, next) {
     }
     next();
 }
-router.get("/user", (request, response) => {
+router.get("/user", (req, res,n) => {
     console.log("In get user");
-    response.json(usersDatabase);
+    res.status(200).json(usersDatabase)
 });
 
 router.get("/user/:id", (request, response, next) => {
