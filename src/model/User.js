@@ -29,8 +29,14 @@ const userSchema = new Schema({
     },
     age:{
         type: Number,
-        min: 13 [`Please enter an age over 13. If you are under 13 years old please get an Parent/Guardian to create an account instead`],
+        min: 13 [`Please enter an age over 13. If you are under 13 years old please get a Parent/Guardian to create an account instead`],
         required: [true, 'Please enter your age']
+    },
+    phonenumber:{
+        type:Number,
+        min:10,
+        max:11,
+        rearuited:false
     },
     createdAt: {
         type: Date,
