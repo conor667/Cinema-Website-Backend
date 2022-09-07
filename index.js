@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const database = require('./config/database.config');
 const authenticationRouter = require('./route/AuthenticationRouter');
-const exampleRouter = require('./route/ExampleRouter');
+const userRouter = require('./router/UserRouter');
 const cors = require('cors');
 
 const PORT = process.env.PORT || 5500;
@@ -15,7 +15,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 app.use(authenticationRouter);
-app.use('/example', exampleRouter);
+app.use('/example', userRouter);
 
 async function main() {
     await database.connect();
