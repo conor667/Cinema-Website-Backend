@@ -25,12 +25,12 @@ router.post('/register', async (request, response, next) => {
         ]});
 
         if (isUser) {
-            return response.status(409).send("User already exists!");
+            return response.status(409).send("This user already exists!");
         }
 
         await user.save();
 
-        return response.status(201).json(`User ${user.username} created successfully, please log in.`);
+        return response.status(201).json(`User ${user.username} has been created, please log in.`);
     } catch (err) {
         return next(err);
     }
@@ -41,10 +41,9 @@ router.post('/login', async (request, response, next) => {
         const { username, password } = request.body;
 
         if (!(username) || !(password)) {
-            return response.status(400).send("Incomplete login fields.");
+            return response.status(400).send("Either username or password is incorrect.");
         }
 
-        // ensure to select the pw from the db for the comparison
         const user = await User.findOne({ username }).select('+password');
 
         if (user) {
