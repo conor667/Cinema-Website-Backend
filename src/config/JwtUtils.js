@@ -34,10 +34,8 @@ function authenticationMiddleware(request, response, next) {
             console.error(error);
             return response.status(403).send('Invalid token supplied.');
         }
-        // attach the user to the request object
         request.user = user;
         console.log(`User ${user.username} was authorized successfully.`);
-        // pass control to the next piece of middleware
         next();
     });
 }

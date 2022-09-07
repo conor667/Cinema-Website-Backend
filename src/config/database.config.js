@@ -12,7 +12,7 @@ module.exports = {
         const db = mongoose.connection;
 
         db.on('error', () => {
-            console.error.bind(console, 'MongoDB connection error');
+            console.error.bind(console, 'MongoDB has not been connected');
             process.exit(1);
         });
         db.on('connection', console.log.bind(console, 'MongoDB connected'));
