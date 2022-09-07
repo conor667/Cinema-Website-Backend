@@ -33,7 +33,7 @@ const userSchema = new Schema({
         required: [true, 'Please enter your age']
     },
     phonenumber:{
-        type:Number,
+        type:String,
         min:10,
         max:11,
         rearuited:false
