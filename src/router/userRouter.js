@@ -1,6 +1,6 @@
 const express = require('express');
 const User = require('../model/user');
-const UserNotFoundError = require('./src/errors/UserNotFoundError');
+const UserNotFoundError = require('../errors/UserNotFoundError');
 
 const router = express.Router();
 

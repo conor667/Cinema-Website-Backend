@@ -20,6 +20,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(authenticationRouter);
 app.use('/example', userRouter);
 
+//Main Method
 async function main() {
     await mongoose.connect(DB_URI, { useNewUrlParser : true, useUnifiedTopology: true })
                   .then(() => console.log(`Database has been connected: ${DB_URI}`));
