@@ -1,8 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 const mongoose = require("mongoose");
-
 
 //Routers
 const userRouter = require('./src/router/userRouter');
@@ -27,6 +25,8 @@ app.use(express.static("public"));
 
 //Authenticator
 app.use(authenticationRouter);
+app.use('/', userRouter);
+
 
 //Main Method
 let server;
