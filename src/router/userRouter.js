@@ -58,7 +58,7 @@ router.delete("/user/:id", async (request, response, next) => {
     const user = await User.findOneAndDelete({ _id: request.params.id });
 
     if (user) {
-        response.status(200).json(user);
+        response.status(200).json(`deleted ${user.username}`);
     } else {
         next(new UserNotFoundError(request.params.id));
     }
