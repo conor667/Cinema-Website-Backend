@@ -1,5 +1,8 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const bcrypt = require('bcrypt');
+
+
 const userSchema = new Schema({
     username: {
         type: String,
@@ -25,8 +28,8 @@ const userSchema = new Schema({
         unique: true,
         match: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     },
-    age:{
-        type: Number,
+    date_of_birth:{
+        type: Date,
         min: 12 [`Please enter an age 12 or over. If you are under 12 years old please get a Parent/Guardian to create an account instead`],
         required: [true, 'Please enter your age']
     },
@@ -46,12 +49,10 @@ const userSchema = new Schema({
         default: 'MEMBER'
     }
 });
-
 userSchema.pre('save', async function(next) {
     if (this.password && this.isModified('password')) {
         this.password = await bcrypt.hash(this.password, 8);
     }
-
     next();
 });
 

@@ -6,32 +6,34 @@ const mongoose = require("mongoose");
 const userRouter = require('./src/router/userRouter');
 const authenticationRouter = require('./src/router/AuthenticationRouter');
 
+//Logger
+const { simpleLogger, logHitSpecialEndpoint } = require('./src/loggers/generic');
+
 //Database setup
-const DB_URI = "mongodb://127.0.0.1:27017/qa-cinemas";
-const PORT = 5000;
+const PORT = process.env.PORT || 5500;
+const DB_URL = process.env.DB_URL || "mongodb://127.0.0.1:27017/mongooseExample"
 const app = express();
 
 //Middleware setup
+app.use(simpleLogger);
 app.use(cors("*"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// setup serving static files
+app.use(express.static("public"));
 
+//Authenticator
 app.use(authenticationRouter);
-app.use('/example', userRouter);
+app.use('/', userRouter);
 
 //Main Method
-async function main() {
-    await mongoose.connect(DB_URI, { useNewUrlParser : true, useUnifiedTopology: true })
-                  .then(() => console.log(`Database has been connected: ${DB_URI}`));
-
-    const db = mongoose.connection;
-
-    db.on('error', console.error.bind(console, 'Database connection error'));
-    db.on('connection', console.log.bind(console, 'Database connected'));
-    
-    const server = app.listen(PORT, function() {
-        console.log(`Server up on localhost:${PORT}`);
-    });
-}
-main();
+let server;
+mongoose.connect(DB_URL, { useNewUrlParser: true })
+        .then(() => {
+            console.log(`Database connected`);
+            server = app.listen(PORT, () => console.log(`Server up on port ${PORT}`));
+        }).catch(error => {
+            console.log(`Unable to connect to database.`)
+        });
+let databaseConnection = mongoose.connection;
