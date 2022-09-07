@@ -31,8 +31,8 @@ app.use('/', userRouter);
 let server;
 mongoose.connect(DB_URL, { useNewUrlParser: true })
         .then(() => {
-            console.log(`Database connected`);
-            server = app.listen(PORT, () => console.log(`Server up on port ${PORT}`));
+            console.log(`Database has been connected on mongodb 127.0.0.1:27017`);
+            server = app.listen(PORT, () => console.log(`Server is up on port localhost:${PORT}!`));
         }).catch(error => {
             console.log(`Unable to connect to database.`)
         });
