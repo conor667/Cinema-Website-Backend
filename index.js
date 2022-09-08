@@ -12,7 +12,7 @@ const { simpleLogger, logHitSpecialEndpoint } = require('./src/loggers/generic')
 
 //Database setup
 const PORT = process.env.PORT || 5500;
-const DB_URL = process.env.DB_URL || "mongodb://127.0.0.1:27017/mongooseExample"
+const DB_URL = process.env.DB_URL || "mongodb://127.0.0.1:27017/QaCinema"
 const app = express();
 
 //Middleware setup
