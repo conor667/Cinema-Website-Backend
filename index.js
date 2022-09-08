@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 const userRouter = require('./src/router/userRouter');
 const movieRouter = require('./src/router/movieRouter');
 const screenRouter = require('./src/router/screenRouter')
+const ticketRouter = require('./src/router/TicketRouter');
 const authenticationRouter = require('./src/router/AuthenticationRouter');
 
 //Logger
@@ -30,7 +31,7 @@ app.use(authenticationRouter);
 app.use('/', userRouter);
 app.use('/', movieRouter);
 app.use('/', screenRouter);
-
+app.use('/', ticketRouter);
 
 //Main Method
 let server;
