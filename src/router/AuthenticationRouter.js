@@ -1,7 +1,7 @@
 const express = require('express');
 const bcrypt = require('bcryptjs');
 const router = express.Router();
-const User = require('../model/user');
+const User = require('../model/User');
 const jwtUtils = require('../config/JwtUtils');
 const { authenticationMiddleware } = require('../config/JwtUtils');
 const expiration = jwtUtils.JWT_TIMEOUT;

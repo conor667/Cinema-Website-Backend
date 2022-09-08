@@ -1,5 +1,5 @@
 const express = require('express');
-const User = require('../model/user');
+const User = require('../model/User');
 const UserNotFoundError = require('../errors/UserNotFoundError');
 
 //setting up router
