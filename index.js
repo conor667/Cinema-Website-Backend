@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 //Routers
 const userRouter = require('./src/router/userRouter');
 const movieRouter = require('./src/router/movieRouter');
+const screenRouter = require('./src/router/screenRouter')
 const authenticationRouter = require('./src/router/AuthenticationRouter');
 
 //Logger
@@ -12,7 +13,7 @@ const { simpleLogger, logHitSpecialEndpoint } = require('./src/loggers/generic')
 
 //Database setup
 const PORT = process.env.PORT || 5500;
-const DB_URL = process.env.DB_URL || "mongodb://127.0.0.1:27017/mongooseExample"
+const DB_URL = process.env.DB_URL || "mongodb://127.0.0.1:27017/QaCinema"
 const app = express();
 
 //Middleware setup
@@ -28,6 +29,8 @@ app.use(express.static("public"));
 app.use(authenticationRouter);
 app.use('/', userRouter);
 app.use('/', movieRouter);
+app.use('/', screenRouter);
+
 
 //Main Method
 let server;
