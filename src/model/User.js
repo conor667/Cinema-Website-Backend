@@ -29,7 +29,7 @@ const userSchema = new Schema({
         match: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     },
     date_of_birth:{
-        type: Date,
+        type:Date,
         min: 12 [`Please enter an age 12 or over. If you are under 12 years old please get a Parent/Guardian to create an account instead`],
         required: [true, 'Please enter your age']
     },
