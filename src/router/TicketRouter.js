@@ -28,7 +28,7 @@ router.get("/ticket/:id", async (request, response, next) => {
         next(new TicketNotFoundError(request.params.id));
     }
 });
-//create a user
+//create a ticket
 router.post("/ticket", isJsonData, async (request, response, next) => {
     try {
         const ticket = new Ticket(request.body);
@@ -42,7 +42,7 @@ router.post("/ticket", isJsonData, async (request, response, next) => {
     }
 });
 
-// update a user by ID
+// update a ticket by ID
 router.put("/ticket/:id", isJsonData, async (request, response, next) => {
     const ticket = await Ticket.updateOne({ _id: request.params.id }, request.body);
 
@@ -53,7 +53,7 @@ router.put("/ticket/:id", isJsonData, async (request, response, next) => {
     }
 });
 
-// delete a user by ID
+// delete a ticket by ID
 router.delete("/ticket/:id", async (request, response, next) => {
     const ticket = await Ticket.findOneAndDelete({ _id: request.params.id });
 
