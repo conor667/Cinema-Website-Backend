@@ -15,9 +15,13 @@ const screenSchema = new Schema({
         type: Number,
         required: [true, 'Please enter the screen number']
     },
-    seats:{
+    standardSeats:{
         type: Number,
-        required: [true, 'Please enter the amount of seats the screen has']
+        required: [true, 'Please enter the amount of standard seats the screen has']
+    },
+    deluxeSeats:{
+        type: Number,
+        required: [true, 'Please enter the amount of deluxe seats the screen has']
     },
     film:{
         _id: String,
