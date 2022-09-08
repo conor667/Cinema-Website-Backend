@@ -4,12 +4,9 @@ const mongoose = require("mongoose");
 
 //Routers
 const userRouter = require('./src/router/userRouter');
-<<<<<<< HEAD
 const movieRouter = require('./src/router/movieRouter');
 const screenRouter = require('./src/router/screenRouter')
-=======
 const ticketRouter = require('./src/router/TicketRouter');
->>>>>>> b5f85286505940df1874f896c3d719c4fac07d96
 const authenticationRouter = require('./src/router/AuthenticationRouter');
 
 //Logger
@@ -32,13 +29,9 @@ app.use(express.static("public"));
 //Authenticator
 app.use(authenticationRouter);
 app.use('/', userRouter);
-<<<<<<< HEAD
 app.use('/', movieRouter);
 app.use('/', screenRouter);
-
-=======
 app.use('/', ticketRouter);
->>>>>>> b5f85286505940df1874f896c3d719c4fac07d96
 
 //Main Method
 let server;
