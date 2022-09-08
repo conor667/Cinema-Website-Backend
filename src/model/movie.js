@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const bcrypt = require('bcryptjs');
 
 const movieSchema = new Schema({
     filmName: {
@@ -28,26 +27,8 @@ const movieSchema = new Schema({
         enum: ['Uc', 'U', 'Pg', '12', '12A', '15', '18', 'R18'],
         required: [true, 'please enter the film RATING.']
     }
-    // },
-    // createdAt: {
-    //     type: Date,
-    //     default: Date.now()
-    // },
-    // role: {
-    //     type: String,
-    //     enum: ['STAFF', 'MEMBER'],
-    //     default: 'MEMBER'
-    // }
 });
 
-// bycript:
-// userSchema.pre('save', async function(next) {
-//     if (this.password && this.isModified('password')) {
-//         this.password = await bcrypt.hash(this.password, 8);
-//     }
-
-//     next();
-// });
 
 const Movie = mongoose.model('Movie', movieSchema);
 
