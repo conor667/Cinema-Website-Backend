@@ -1,5 +1,6 @@
 const express = require('express');
 const Screen = require('../model/screens');
+const ScreenNotFoundError = require('../errors/ScreenNotFoundError');
 
 //setting up router
 const router = express.Router();
@@ -7,7 +8,7 @@ const router = express.Router();
 //Checks if the body contains Json data
 function isJsonData(request, response, next) {
     if (request.headers['content-type'] !== 'application/json') {
-        return next(new Error("Route only accepts JSON data."));
+        return next(new ScreenNotFoundError("Route only accepts JSON data."));
     }
     next();
 }
@@ -24,7 +25,7 @@ router.get("/screen/:id", async (request, response, next) => {
         response.status(200).json(screen);
     } else {
 
-        next(new Error(request.params.id));
+        next(new ScreenNotFoundError(request.params.id));
     }
 });
 //create a screen
@@ -48,7 +49,7 @@ router.put("/screen/:id", isJsonData, async (request, response, next) => {
     if (screen) {
         response.status(200).json(screen);
     } else {
-        next(new Error(request.params.id));
+        next(new ScreenNotFoundError(request.params.id));
     }
 });
 
@@ -59,7 +60,7 @@ router.delete("/screen/:id", async (request, response, next) => {
     if (screen) {
         response.status(200).json(`deleted ${screen.screenName}`);
     } else {
-        next(new Error(request.params.id));
+        next(new ScreenNotFoundError(request.params.id));
     }
 });
 
