@@ -20,7 +20,7 @@ const screenSchema = new Schema({
         required: [true, 'Please enter the amount of seats the screen has']
     },
     film:{
-        _id: String,
+        film_id: <ObjectId/>,
         name: String,
     }
 });
