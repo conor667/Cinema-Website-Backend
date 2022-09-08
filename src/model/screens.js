@@ -5,7 +5,7 @@ const bcrypt = require('bcrypt');
 
 const screenSchema = new Schema({
     screenName: {
-        type: `Screen ${String}`,
+        type: String,
         default: null,
         required: [true, 'Please enter a screen name'],
         trim: true,
@@ -20,11 +20,10 @@ const screenSchema = new Schema({
         required: [true, 'Please enter the amount of seats the screen has']
     },
     film:{
-        film_id: <ObjectId/>,
-        name: String,
+        _id: String,
     }
 });
 
 const screen = mongoose.model('Screen', screenSchema);
 
-module.exports = Screen;
+module.exports = screen;
