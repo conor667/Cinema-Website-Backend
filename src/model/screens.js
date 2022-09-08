@@ -5,7 +5,7 @@ const bcrypt = require('bcrypt');
 
 const screenSchema = new Schema({
     screenName: {
-        type: String,
+        type: `Screen ${String}`,
         default: null,
         required: [true, 'Please enter a screen name'],
         trim: true,
@@ -27,4 +27,4 @@ const screenSchema = new Schema({
 
 const screen = mongoose.model('Screen', screenSchema);
 
-module.exports = User;
+module.exports = Screen;
