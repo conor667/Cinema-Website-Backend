@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 
 //Routers
 const userRouter = require('./src/router/userRouter');
+const movieRouter = require('./src/router/movieRouter');
 const authenticationRouter = require('./src/router/AuthenticationRouter');
 
 //Logger
@@ -26,6 +27,7 @@ app.use(express.static("public"));
 //Authenticator
 app.use(authenticationRouter);
 app.use('/', userRouter);
+app.use('/', movieRouter);
 
 //Main Method
 let server;
