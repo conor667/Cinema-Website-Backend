@@ -7,6 +7,7 @@ const userRouter = require('./src/router/userRouter');
 const movieRouter = require('./src/router/movieRouter');
 const screenRouter = require('./src/router/screenRouter')
 const ticketRouter = require('./src/router/TicketRouter');
+const commentRouter = require('./src/router/CommentRouter');
 const authenticationRouter = require('./src/router/AuthenticationRouter');
 
 //Logger
@@ -32,6 +33,7 @@ app.use('/', userRouter);
 app.use('/', movieRouter);
 app.use('/', screenRouter);
 app.use('/', ticketRouter);
+app.use('/', commentRouter);
 
 //Main Method
 let server;
