@@ -37,7 +37,7 @@ const userSchema = new Schema({
         type:String,
         min:10,
         max:11,
-        rearuited:false
+        required:false
     },
     createdAt: {
         type: Date,
