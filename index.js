@@ -34,18 +34,6 @@ app.use('/', movieRouter);
 app.use('/', screenRouter);
 app.use('/', ticketRouter);
 app.use('/', commentRouter);
-
-<<<<<<< HEAD
-async function main() {
-    await database.connect();
-
-    app.listen(PORT, () => {
-        console.log(`Server up on ${PORT}`);
-    });
-}
-//hello
-main();
-=======
 //Main Method
 let server;
 mongoose.connect(DB_URL, { useNewUrlParser: true })
@@ -56,4 +44,3 @@ mongoose.connect(DB_URL, { useNewUrlParser: true })
             console.log(`Unable to connect to database.`)
         });
 let databaseConnection = mongoose.connection;
->>>>>>> d519e44d9d77c9cdf5013da4a51d881ccd2dcd31
