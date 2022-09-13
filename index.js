@@ -34,6 +34,7 @@ app.use('/', movieRouter);
 app.use('/', screenRouter);
 app.use('/', ticketRouter);
 app.use('/', commentRouter);
+
 //Main Method
 let server;
 mongoose.connect(DB_URL, { useNewUrlParser: true })
