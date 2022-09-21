@@ -14,7 +14,10 @@ function isJsonData(request, response, next) {
 }
 //finds all movies 
 router.get("/movie", async (request, response) => {
-    response.json(await Movie.find()); 
+    if (request.query.filmName) {
+    
+    }
+    else response.json(await Movie.find()); 
 });
 
 //Find movie by ID

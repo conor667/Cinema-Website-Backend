@@ -7,11 +7,20 @@ const movieSchema = new Schema({
         required: [true, 'Please enter the name of the movie'],
         unique: [true, 'Please enter a unique movie name.']
     },
-    length: {
-        type: Number,
-        required: [true, 'Please enter the lenght of the movie in minutes.'],
-        minlength: 60,
+    imageURL: {
+        type: String,
+        required: false
     },
+
+    length: {
+        type: String
+    },
+
+    director: {
+        type: String,
+        required: [true, 'Please enter the name of the director']
+    },
+
     genre: {
         type: String,
         enum: ['Action' , 'Crime', 'Drama', 'Fantasy', 'Horror', 'Comedy', 'Romance', 'Science Fiction', 'Sports', 'Thriller', 'Mystery', 'War', 'Western'],
