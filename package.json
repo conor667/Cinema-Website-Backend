@@ -14,6 +14,7 @@
     "@reduxjs/toolkit": "^1.8.5",
     "bcrypt": "^5.0.1",
     "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "create": "^0.0.2",
     "create-react-app": "^1.2.1",
@@ -28,5 +29,8 @@
     "nodemon": "^2.0.16",
     "react-app": "^1.1.2",
     "stripe": "^10.7.0"
+  },
+  "devDependencies": {
+    "express-session": "^1.17.3"
   }
 }
