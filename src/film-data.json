@@ -1,14 +1,6 @@
+
 {
-    "filmName": "Doctor Strange in the Multiverse of Madness",
-    "filmCodeName": "drstr",
-    "imageURL": "https://m.media-amazon.com/images/M/MV5BNWM0ZGJlMzMtZmYwMi00NzI3LTgzMzMtNjMzNjliNDRmZmFlXkEyXkFqcGdeQXVyMTM1MTE1NDMx._V1_.jpg",
-    "length": "2h 6m",
-    "director": "Sam Raimi",
-    "genre": "Action",
-    "description": "Doctor Strange teams up with a mysterious teenage girl from his dreams who can travel across multiverses, to battle multiple threats, including other-universe versions of himself, which threaten to wipe out millions across the multiverse. They seek help from Wanda the Scarlet Witch, Wong and others.",
-    "rating": "12A",
-    "pageURL": "http://localhost:3000/DrStr",
-    "newfilm": false
+
 }
 
 {
@@ -24,9 +16,6 @@
     "pageURL": "http://localhost:3000/shtr",
     "newfilm": true
 },
-
-
-
 {
   
     "filmName": "Top Gun: Maverick",
