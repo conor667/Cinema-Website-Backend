@@ -5,16 +5,16 @@ const MovieNotFoundError = require("../errors/MovieNotFoundError");
 //setting up router
 const router = express.Router();
 
-const seed = new Movie({
-	filmName: "X",
-	imageURL: "https://m.media-amazon.com/images/M/MV5BMTJiMmE5YWItOWZjYS00YTg0LWE0MTYtMzg2ZTY4YjNkNDEzXkEyXkFqcGdeQXVyMTAzMDg4NzU0._V1_.jpg",
-	length: "1h 45m",
-	director: "Ti West",
-	genre: "Horror",
-	description: "In 1979, a group of young filmmakers set out to make an adult film in rural Texas, but when their reclusive, elderly hosts catch them in the act, the cast find themselves fighting for their lives.",
-	rating: "R18",
-});
-seed.save();
+// const seed = new Movie({
+// 	filmName: "X",
+// 	imageURL: "https://m.media-amazon.com/images/M/MV5BMTJiMmE5YWItOWZjYS00YTg0LWE0MTYtMzg2ZTY4YjNkNDEzXkEyXkFqcGdeQXVyMTAzMDg4NzU0._V1_.jpg",
+// 	length: "1h 45m",
+// 	director: "Ti West",
+// 	genre: "Horror",
+// 	description: "In 1979, a group of young filmmakers set out to make an adult film in rural Texas, but when their reclusive, elderly hosts catch them in the act, the cast find themselves fighting for their lives.",
+// 	rating: "R18",
+// });
+// seed.save();
 
 //Checks if the body contains Json data
 function isJsonData(request, response, next) {
@@ -27,6 +27,28 @@ function isJsonData(request, response, next) {
 router.get("/movie", async (request, response) => {
 	if (request.query.filmName) {
 	} else response.json(await Movie.find());
+});
+
+//get movie by new release
+router.get('/newfilm/:newfilm', async (request, response) => {
+    try {
+        const movie = await Movie.find({ newfilm: { $eq: request.params.newfilm } })
+        response.send(movie);
+    } catch {
+        response.status(404);
+        response.send({ error: 'no movies' })
+    }
+});
+
+//get movie by film name
+router.get('/filmCodeName/:filmCodeName', async (request, response) => {
+    try {
+        const movie = await Movie.find({ filmCodeName: { $eq: request.params.filmCodeName } })
+        response.send(movie);
+    } catch {
+        response.status(404);
+        response.send({ error: 'no movies' })
+    }
 });
 
 //Find movie by ID
