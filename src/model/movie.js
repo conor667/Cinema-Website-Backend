@@ -7,6 +7,14 @@ const movieSchema = new Schema({
         required: [true, 'Please enter the name of the movie'],
         unique: [true, 'Please enter a unique movie name.']
     },
+
+    filmCodeName: { 
+        type: String,
+        unique: true,
+        max: 5
+
+    },
+
     imageURL: {
         type: String,
         required: false
@@ -31,10 +39,23 @@ const movieSchema = new Schema({
         min: 50 [`Movie description must be 50 characters or more.`],
         required: [true, 'Please enter a movie decription.']
     },
+
+    longDescription: {
+        type: String
+    },
+    
     rating:{
         type: String,
         enum: ['Uc', 'U', 'Pg', '12', '12A', '15', '18', 'R18'],
         required: [true, 'please enter the film RATING.']
+    },
+
+    pageURL: {
+        type: String
+    },
+
+    newfilm: {
+        type:Boolean 
     }
 });
 

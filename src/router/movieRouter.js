@@ -111,6 +111,28 @@ router.get("/movie", async (request, response) => {
 	} else response.json(await Movie.find());
 });
 
+//get movie by new release
+router.get('/newfilm/:newfilm', async (request, response) => {
+    try {
+        const movie = await Movie.find({ newfilm: { $eq: request.params.newfilm } })
+        response.send(movie);
+    } catch {
+        response.status(404);
+        response.send({ error: 'no movies' })
+    }
+});
+
+//get movie by film name
+router.get('/filmCodeName/:filmCodeName', async (request, response) => {
+    try {
+        const movie = await Movie.find({ filmCodeName: { $eq: request.params.filmCodeName } })
+        response.send(movie);
+    } catch {
+        response.status(404);
+        response.send({ error: 'no movies' })
+    }
+});
+
 //Find movie by ID
 router.get("/movie/:id", async (request, response, next) => {
 	const movie = await Movie.findById(request.params.id);
